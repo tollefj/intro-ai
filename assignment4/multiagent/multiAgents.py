@@ -190,16 +190,18 @@ class MinimaxAgent(MultiAgentSearchAgent):
                     action_list.append(min_value(result, depth, agent_next))
                 else:
                     """
-                    if: done checking depths? return the score
+                    this is pacman!
+
+                    if: the next depth is the outer limit? compute the score
                     e.g.
                              root           depth = 0
                             /   \
-                          1       3         depth = 1, this is the last check!
+                          1       3         depth = 1, compute!
                          / \     / \
                         1   2   3   4       depth = 2
 
-                    else: not at the nearest depth from pacman,
-                    keep getting the highest value move
+
+                    else: keep getting the highest value move
                     """
                     if depth == self.depth - 1:
                         action_list.append(self.evaluationFunction(result))
@@ -257,18 +259,20 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
                     tmp = min_value(result, depth, agent_next, alpha, beta)
                 else:
                     """
-                    if: done checking depths? return the score
+                    this is pacman!
+
+                    if: the next depth is the outer limit? compute the score
                     e.g.
                              root           depth = 0
                             /   \
-                          1       3         depth = 1, this is the last check!
+                          1       3         depth = 1, compute!
                          / \     / \
                         1   2   3   4       depth = 2
 
-                    else: not at the nearest depth from pacman,
-                    keep getting the highest value move
+                    else: keep getting the highest value move
                     """
-                    if depth == self.depth - 1:
+                    print(depth)
+                    if depth + 1 == self.depth:
                         tmp = self.evaluationFunction(result)
                     else:
                         tmp = max_value(result, depth + 1, alpha, beta)

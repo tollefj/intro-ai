@@ -109,6 +109,10 @@ class MultiAgentSearchAgent(Agent):
 
 
 class StateHelper:
+    """
+    these functions would typically be in a separate helper/utils file,
+    kept here to avoid modifying anything but this multiAgents.
+    """
     def utility(self, state):
         """
         simply returns the score of the state
